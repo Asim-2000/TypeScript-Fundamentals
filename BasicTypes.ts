@@ -1,9 +1,15 @@
-var person = {
+const person: {
+    name: string,
+    age:number
+} = {
     name: "Asim",
-    age: 22
-};
+    age:22
+}
+
 console.log(person.name);
+
 // better syntax = let typescript infer types
+
 // const anotherPerson: {
 //     name: string,
 //     age: number,
@@ -15,28 +21,40 @@ console.log(person.name);
 //     hobbies: ["Cooking", "Playing"],
 //     role:[2,"J.K Rowling"]
 // }
-var Role;
-(function (Role) {
-    Role[Role["ADMIN"] = 0] = "ADMIN";
-    Role[Role["READ_ONLY_USER"] = 1] = "READ_ONLY_USER";
-})(Role || (Role = {}));
-;
-var anotherPerson = {
+
+enum Role { ADMIN,READ_ONLY_USER};
+
+const anotherPerson={
     name: "Asim Returns",
     age: 21,
     hobbies: ["Cooking", "Playing"],
-    role: Role.ADMIN
-};
-if (anotherPerson.role === Role.ADMIN) {
-    console.log('is admin');
+    role:Role.ADMIN
 }
-var languages;
+
+
+if (anotherPerson.role === Role.ADMIN) {
+    console.log('is admin')
+}
+
+let languages: string[];
 languages = ["Python", "JavaScript"];
-for (var _i = 0, _a = anotherPerson.hobbies; _i < _a.length; _i++) {
-    var hobby = _a[_i];
+
+let favHobbies: any[];
+favHobbies = [1, 'Hello World'];
+
+for (let hobby of anotherPerson.hobbies) {
+    
     console.log(hobby.toUpperCase());
     // console.log(hobby.map())    !!! ERROR !!!
+
 }
+
 // anotherPerson.role.push("admin")        Not caught in typescript
+
 // anotherPerson.role[1] = 10;             Error
+
 // anotherPerson.role = [0,'admin','user'] Error
+
+
+
+
